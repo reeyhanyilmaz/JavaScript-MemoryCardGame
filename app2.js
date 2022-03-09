@@ -1,12 +1,16 @@
 const cards = document.querySelectorAll(".memory-card");
+const refresh = document.querySelector(".refresh img");
+const final = document.querySelector(".final");
+const congrats = document.querySelector("#congratsSection");
+const minute = document.querySelector(".minute");
+const second = document.querySelector(".second");
 
 let hasFlippedCard = false;
 let firstCard , secondCard;
 let lockBoard = false; //ard arda tıklamaya iizin vermiyo
-const refresh = document.querySelector(".refresh img");
-let second = 0;
-let minute = 0;
-let time = document.querySelector(".time");
+// let second = 0;
+// let minute = 0;
+let totalSeconds = 0;
 let interval;
 
 
@@ -27,8 +31,7 @@ function flipCard(){
 
     //second click
     hasFlippedCard = false;  
-    secondCard =this;
-    
+    secondCard =this;   
     checkForMatch();
 }
 
@@ -53,7 +56,7 @@ function unFlipCards(){
         firstCard.classList.remove("flip");
         secondCard.classList.remove("flip");
         lockBoard =false;
-    }, 1500);
+    }, 1000);
 }
 
 function resetBoard(){ // card döndüğünde tekrar tıklayabilmemizi sağlar
@@ -67,22 +70,36 @@ refresh.addEventListener("click", function(){
     location.reload();
 });
 
+
+//zaman göstergesi 
 function startTime () {
     interval = setInterval(function () { //interval belirli araliklarla sürekli çalişmasini saglar. 
-        time.innerHTML = ` ${minute}:${second}`;
-        second++;
-
-        if( second == 60){
-            minute++;
-            second = 0;
-        }
-
-        if (minute == 60){
-            hour++;
-            minute = 0;
-        }
+        ++totalSeconds;
+        second.innerHTML = pad(totalSeconds % 60);
+        minute.innerHTML = pad(parseInt(totalSeconds / 60));
     }, 1000);
 };
+
+function pad(val){ // 00 şeklinde ilerlesin zaman diye yazdik burayi
+    const valString = val + "";
+    if(valString.length <2){
+        return "0" + valString;
+    } else {
+        return valString;
+    }
+};
+
+
+//game won
+function gameWon(){
+    if (hasFlippedCard === 12){
+        clearInterval(interval);
+        final.innerHTML = `You won" + "<br> in " + ${minute}+":"+ ${second}`;
+        congrats.classList.replace("hidden", "show");
+    }
+};
+gameWon();
+
 
 // function moveCounter (){
 //     moves++;

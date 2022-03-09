@@ -7,7 +7,8 @@
 body{
     height: 100%;
     width: 100%;
-    background-color: rebeccapurple;
+    /* background: #ffffff url('https://res.cloudinary.com/rdelk/image/upload/v1528058711/FEND%20-%20Project%202/geometry2.png') */
+    background-color: cornflowerblue;
 }
 
 h1{
@@ -22,7 +23,6 @@ text-align: center;
 
 }
 
-
 .topTools .time {
     font-weight: 200;
     font-size: 25px;
@@ -32,12 +32,10 @@ text-align: center;
 .topTools img {
     width: 20px;
     height: 20px;
-
 }
 
-
 .memory-game{
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: 550px;
     margin: auto;
     height:550px;
@@ -67,7 +65,7 @@ text-align: center;
 
 .front-face,
 .back-face{
-    border: 2px solid deeppink;
+    /* border: 2px solid deeppink; */
     position: absolute;
     height: 100%;
     width: 100%;
@@ -83,4 +81,72 @@ text-align: center;
 
 img {
     width: 100px;
+}
+
+
+/*for congrats section  */
+  
+
+.hidden{
+     display: none !important;
+ }
+
+.show {
+    display: block;
+}
+
+#congratsSection {
+position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
+background: rgba(0, 0, 0, 0.5);
+width: 100%;
+height: 100vh;
+top:0;
+left: 0;
+ }
+
+#congratsDiv {
+     width: 300px;
+     background: white;
+     color: #6186aa;
+     padding: 20px 0 40px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     border-radius: 5px;
+ }
+
+ #congratsDiv h2 {
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+ }
+
+.final {
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.again {
+  color: #6186aa;
+  text-decoration: none;
+  margin: auto;
+  padding: 10px 20px;
+  width: 160px;
+  border: solid 1px;
+  border-radius: 5px;
+}
+
+.again:hover {
+  background: #6186aa;
+    background-image: linear-gradient(to top left, #9b59b6, #1abc9c);
+  background-size: 250%;
+  color: white;
+  cursor: pointer;
 }
