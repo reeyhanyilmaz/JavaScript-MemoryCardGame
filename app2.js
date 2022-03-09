@@ -61,11 +61,15 @@ function resetBoard(){ // card döndüğünde tekrar tıklayabilmemizi sağlar
     [firstCard, secondCard] = [null, null]
 }
 
-// refresh.addEventListener("click", )
+//refresh butonuna basildiginda
+refresh.addEventListener("click", function(){
+    confirm("Are you sure that?")  
+    location.reload();
+});
 
 function startTime () {
-    interval = setInterval(function () {
-        time.innerHTML = ` ${minute} : ${second}`;
+    interval = setInterval(function () { //interval belirli araliklarla sürekli çalişmasini saglar. 
+        time.innerHTML = ` ${minute}:${second}`;
         second++;
 
         if( second == 60){
