@@ -53,6 +53,10 @@ text-align: center;
     transition: transform .5s;  /* dönme efekti verir*/
 }
 
+.memory-card:hover {
+cursor: pointer;
+}
+
 .memory-card:active {
     transform: scale(.97);
     transition: transform .2s;

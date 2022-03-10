@@ -4,6 +4,8 @@ const final = document.querySelector(".final");
 const congrats = document.querySelector("#congratsSection");
 const minute = document.querySelector(".minute");
 const second = document.querySelector(".second");
+const again = document.querySelector(".again");
+
 
 let hasFlippedCard = false;
 let firstCard , secondCard;
@@ -18,7 +20,7 @@ function flipCard(){
     if(this === firstCard) return;
 
     this.classList.add("flip");
-
+    gameWon();
     if(!hasFlippedCard ){
         // first click
         hasFlippedCard =true;
@@ -31,6 +33,7 @@ function flipCard(){
     hasFlippedCard = false;  
     secondCard =this;   
     checkForMatch();
+   
 }
 
 function checkForMatch(){
@@ -66,6 +69,8 @@ function resetBoard(){ // card döndüğünde tekrar tıklayabilmemizi sağlar
 refresh.addEventListener("click", function(){
     confirm("Are you sure that?")  
     location.reload();
+
+    
 });
 
 
@@ -90,13 +95,18 @@ function pad(val){ // 00 şeklinde ilerlesin zaman diye yazdik burayi
 
 //game won
 function gameWon(){
-    if (flipCard.value === 12){
+    if(document.getElementsByClassName('flip').length === 12){        
+        congratsSection.classList.replace("hidden", "show");
         clearInterval(interval);
-        final.innerHTML = `You won" + "<br> in " + ${minute}+":"+ ${second}`;
-        congrats.classList.replace("hidden", "show");
+        final.innerHTML = "You won in" + minute + second;       
     }
 };
-gameWon();
+
+
+//congrats section again butonu
+again.addEventListener("click" , function () { 
+    congratsSection.classList.replace("show" , "hidden")
+});
 
 // function moveCounter (){
 //     moves++;
