@@ -13,6 +13,7 @@ let lockBoard = false; //ard arda tıklamaya izin vermiyo
 let totalSeconds = 0;
 let interval;
 let finalTime;
+let click = -1;
 
 
 function flipCard(){
@@ -71,13 +72,17 @@ refresh.addEventListener("click", function(){
 
 //zaman göstergesi 
 function startTime () {
-    interval = setInterval(function () { //interval belirli araliklarla sürekli çalişmasini saglar. 
-        final.innerHTML = "You won in " + finalTime + " time!"; 
-        finalTime = minute.innerHTML + ":"+ second.innerHTML;
-        totalSeconds++;
-     second.innerHTML = pad(totalSeconds % 60);
-     minute.innerHTML = pad(parseInt(totalSeconds / 60));
-    }, 1000);
+    if(click === -1){
+        interval = setInterval(function () { //interval belirli araliklarla sürekli çalişmasini saglar. 
+            final.innerHTML = "You won in " + finalTime + " time!"; 
+            finalTime = minute.innerHTML + ":"+ second.innerHTML;
+            totalSeconds++;
+         second.innerHTML = pad(totalSeconds % 60);
+         minute.innerHTML = pad(parseInt(totalSeconds / 60));
+        }, 1000);
+
+    }
+   click = 1; 
 };
 
 function pad(val){ // 00 şeklinde ilerlesin zaman diye yazdik burayi
@@ -92,13 +97,18 @@ function pad(val){ // 00 şeklinde ilerlesin zaman diye yazdik burayi
 
 //game won
 function gameWon(){
-    if(document.getElementsByClassName('flip').length === 12){        
-        congratsSection.classList.replace("hidden", "show");       
-        clearInterval(interval);
-        finalTime = minute.innerHTML + ":"+ second.innerHTML;
-        final.innerHTML = "You won in " + finalTime + " time!"; 
-        totalTime.innerHTML = finalTime;      
-    }
+        if (click < 1){ // clickler saniyenin durması için. Oyun bitse dahi saniye devam etmesini engeller.
+            firstCard = e.target;
+        }
+
+        if(document.getElementsByClassName('flip').length === 12){        
+            congratsSection.classList.replace("hidden", "show");       
+            clearInterval(interval);
+            finalTime = minute.innerHTML + ":"+ second.innerHTML;
+            final.innerHTML = "You won in " + finalTime + " time!"; 
+            totalTime.innerHTML = finalTime;      
+        }
+        click = 0 ;
 };
 
 
