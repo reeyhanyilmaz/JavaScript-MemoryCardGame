@@ -5,35 +5,33 @@ const congrats = document.querySelector("#congratsSection");
 const minute = document.querySelector(".minute");
 const second = document.querySelector(".second");
 const again = document.querySelector(".again");
-
+const totalTime = document.querySelector("#totalTime");
 
 let hasFlippedCard = false;
 let firstCard , secondCard;
-let lockBoard = false; //ard arda tıklamaya iizin vermiyo
+let lockBoard = false; //ard arda tıklamaya izin vermiyo
 let totalSeconds = 0;
 let interval;
+let finalTime;
 
 
 function flipCard(){
-
+    
     if(lockBoard) return;   
     if(this === firstCard) return;
-
     this.classList.add("flip");
-    gameWon();
-    if(!hasFlippedCard ){
-        // first click
+    
+    if(!hasFlippedCard ){        
+        // first click        
         hasFlippedCard =true;
-        firstCard = this;
-        startTime();
-        return; 
+        firstCard = this; 
+        startTime(); // bi süre sonra kafayı yiyor süre
+        return;        
     } 
-
     //second click
     hasFlippedCard = false;  
     secondCard =this;   
-    checkForMatch();
-   
+    checkForMatch();  
 }
 
 function checkForMatch(){
@@ -46,18 +44,17 @@ function disableCards(){
 firstCard.removeEventListener("click", flipCard);
 secondCard.removeEventListener("click", flipCard);
 resetBoard();
+gameWon();
 }
-
 
 function unFlipCards(){
     lockBoard= true;
-
      //not match
      setTimeout(() => {
         firstCard.classList.remove("flip");
         secondCard.classList.remove("flip");
         lockBoard =false;
-    }, 1000);
+    }, 700);
 }
 
 function resetBoard(){ // card döndüğünde tekrar tıklayabilmemizi sağlar
@@ -68,18 +65,18 @@ function resetBoard(){ // card döndüğünde tekrar tıklayabilmemizi sağlar
 //refresh butonuna basildiginda
 refresh.addEventListener("click", function(){
     confirm("Are you sure that?")  
-    location.reload();
-
-    
+    location.reload();   
 });
 
 
 //zaman göstergesi 
 function startTime () {
     interval = setInterval(function () { //interval belirli araliklarla sürekli çalişmasini saglar. 
-        ++totalSeconds;
-        second.innerHTML = pad(totalSeconds % 60);
-        minute.innerHTML = pad(parseInt(totalSeconds / 60));
+        final.innerHTML = "You won in " + finalTime + " time!"; 
+        finalTime = minute.innerHTML + ":"+ second.innerHTML;
+        totalSeconds++;
+     second.innerHTML = pad(totalSeconds % 60);
+     minute.innerHTML = pad(parseInt(totalSeconds / 60));
     }, 1000);
 };
 
@@ -96,22 +93,20 @@ function pad(val){ // 00 şeklinde ilerlesin zaman diye yazdik burayi
 //game won
 function gameWon(){
     if(document.getElementsByClassName('flip').length === 12){        
-        congratsSection.classList.replace("hidden", "show");
+        congratsSection.classList.replace("hidden", "show");       
         clearInterval(interval);
-        final.innerHTML = "You won in" + minute + second;       
+        finalTime = minute.innerHTML + ":"+ second.innerHTML;
+        final.innerHTML = "You won in " + finalTime + " time!"; 
+        totalTime.innerHTML = finalTime;      
     }
 };
 
 
-//congrats section again butonu
+//congrats section'da again butonu
 again.addEventListener("click" , function () { 
-    congratsSection.classList.replace("show" , "hidden")
+    congratsSection.classList.replace("show" , "hidden");
+    location.reload();
 });
-
-// function moveCounter (){
-//     moves++;
-// }
-
 
 (function shuffle(){
     cards.forEach(card => {

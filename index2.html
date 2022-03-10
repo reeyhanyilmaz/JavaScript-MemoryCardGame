@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style2.css">
+    <!-- Google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+       <link rel="stylesheet" href="style2.css">
+
     <title> Memory Game </title>
 </head>
 <body>
-
-    
+   
       <h1>Memory Game</h1> 
-
         <div class="topTools">            
             <!-- <span class="moves"> Move(s)</span> -->
             <div class="time">
@@ -23,7 +28,6 @@
                    
             <span class="refresh"><img src="./assets/refresh.svg" alt="refreshImage"></i></span>
         </div> 
-
 
     <section class="memory-game">    
         <div class="memory-card" data-id="1"> 
@@ -79,8 +83,10 @@
     <!-- Oyun tamamlaninca çikacak ekran -->
     <section id="congratsSection" class="hidden">   
         <div id="congratsDiv">
-            <h2>Congrats</h2>
-            <p class="final"></p>
+            <img src="./assets/congrats.jpg" alt="congratsImage">
+            <p class="final">
+                <span id="totalTime"></span>
+            </p>
             <br>
             <p>
                 <a class="again">Play Again !! </a>

@@ -7,8 +7,8 @@
 body{
     height: 100%;
     width: 100%;
-    /* background: #ffffff url('https://res.cloudinary.com/rdelk/image/upload/v1528058711/FEND%20-%20Project%202/geometry2.png') */
-    background-color: cornflowerblue;
+    background: linear-gradient(to top left, #9b59b6, #1abc9c) no-repeat fixed;
+    font-family: 'Fredoka', sans-serif;
 }
 
 h1{
@@ -23,7 +23,7 @@ text-align: center;
 }
 
 .topTools .time {
-    font-weight: 200;
+    font-weight: bold;
     font-size: 25px;
     color: white;
 }
@@ -33,11 +33,11 @@ text-align: center;
     height: 20px;
 }
 
+/*card container */ 
 .memory-game{
-    /* border: 2px solid green; */
     width: 550px;
     margin: auto;
-    height:550px;
+    height:500px;
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
@@ -51,6 +51,7 @@ text-align: center;
     transform: scale(1);
     transform-style: preserve-3d; 
     transition: transform .5s;  /* dönme efekti verir*/
+    box-shadow: 5px 2px 20px 0 rgba(82, 102, 117, 0.5);
 }
 
 .memory-card:hover {
@@ -68,7 +69,6 @@ cursor: pointer;
 
 .front-face,
 .back-face{
-    /* border: 2px solid deeppink; */
     position: absolute;
     height: 100%;
     width: 100%;
@@ -78,7 +78,7 @@ cursor: pointer;
 }
 
 .back-face {
-background-color: #6186aa;
+background-color: #456b91;
 }
 
 .front-face {
@@ -91,8 +91,7 @@ img {
 }
 
 
-/*for congrats section  */
-
+/*congrats section (gameWon) */
 .hidden{
      display: none !important;
  }
@@ -125,21 +124,17 @@ left: 0;
      border-radius: 5px;
  }
 
- #congratsDiv h2 {
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
- }
-
-.final {
+ .final {
   font-weight: bold;
+  font-size: 20px;
   letter-spacing: 2px;
   margin: auto;
   padding: 10px 20px;
 }
 
 .again {
+  font-size: 20px;
+  font-weight: bold;
   color: #6186aa;
   text-decoration: none;
   margin: auto;
