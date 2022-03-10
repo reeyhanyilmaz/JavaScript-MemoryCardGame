@@ -92,7 +92,7 @@ img {
 
 
 /*congrats section (gameWon) */
-.hidden{
+ .hidden{
      display: none !important;
  }
 
@@ -152,3 +152,37 @@ left: 0;
   cursor: pointer;
 }
 
+
+/*responsive*/
+@media only  screen and  (max-width: 768px){
+  
+    h1 {
+        margin-top: 100px;
+        font-size: 22px;
+    }
+
+    .topTools {
+        margin: 20px 0 20px 0;
+    }
+
+    .topTools .time{
+        font-weight: thin;
+        font-size: 18px;
+    }
+
+    .topTools img {
+        width: 17px;
+        height: 17px;
+    }
+
+    .memory-game {
+        width: 350px;
+        height: 450px;
+    }
+    
+    .memory-card {
+        margin: 5px;
+        width: calc(33.333% - 10px);
+        height: calc(25% - 10px); 
+    }
+}
