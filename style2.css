@@ -19,8 +19,7 @@ text-align: center;
 .topTools{
     display: flex;
     justify-content: space-evenly;  
-    margin: 20px 0 10px 0;
-
+    margin: 10px 0 10px 0;
 }
 
 .topTools .time {
@@ -71,12 +70,16 @@ text-align: center;
     width: 100%;
     padding: 20px;
     backface-visibility: hidden;
-    border-radius: 5px;
-    background-color: blue;
+    border-radius: 5px;   
+}
+
+.back-face {
+background-color: #6186aa;
 }
 
 .front-face {
     transform: rotateY(180deg);
+    background-color: white;
 }
 
 img {
@@ -85,7 +88,6 @@ img {
 
 
 /*for congrats section  */
-  
 
 .hidden{
      display: none !important;
@@ -150,3 +152,4 @@ left: 0;
   color: white;
   cursor: pointer;
 }
+

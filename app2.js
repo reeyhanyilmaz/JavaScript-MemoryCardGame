@@ -8,8 +8,6 @@ const second = document.querySelector(".second");
 let hasFlippedCard = false;
 let firstCard , secondCard;
 let lockBoard = false; //ard arda tıklamaya iizin vermiyo
-// let second = 0;
-// let minute = 0;
 let totalSeconds = 0;
 let interval;
 
@@ -92,14 +90,13 @@ function pad(val){ // 00 şeklinde ilerlesin zaman diye yazdik burayi
 
 //game won
 function gameWon(){
-    if (hasFlippedCard === 12){
+    if (flipCard.value === 12){
         clearInterval(interval);
         final.innerHTML = `You won" + "<br> in " + ${minute}+":"+ ${second}`;
         congrats.classList.replace("hidden", "show");
     }
 };
 gameWon();
-
 
 // function moveCounter (){
 //     moves++;
