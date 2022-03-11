@@ -40,6 +40,7 @@ h1 {
   height: 500px;
   display: flex;
   flex-wrap: wrap;
+  -webkit-perspective: 1000px;
   perspective: 1000px;
 }
 
@@ -49,6 +50,7 @@ h1 {
   height: calc(33.333% - 10px);
   position: relative;
   transform: scale(1);
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: transform 0.5s; /* dönme efekti verir*/
   box-shadow: 5px 2px 20px 0 rgba(82, 102, 117, 0.5);
@@ -77,6 +79,7 @@ h1 {
   height: 100%;
   width: 100%;
   padding: 20px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 5px;
 }
@@ -86,6 +89,7 @@ h1 {
 }
 
 .front-face {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   background-color: white;
 }
@@ -96,7 +100,6 @@ img {
 
 /*congrats section (gameWon) */
 .hidden {
--webkit-display: none !important;
   display: none !important;
 }
 
