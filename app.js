@@ -26,7 +26,7 @@ function flipCard(){
         // first click        
         hasFlippedCard =true;
         firstCard = this; 
-        startTime(); // bi süre sonra kafayı yiyor süre
+        startTime();
         return;        
     } 
     //second click
